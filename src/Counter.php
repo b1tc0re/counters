@@ -3,16 +3,16 @@
 
 use DeftCMS\Engine;
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Класс для инициализации статистики
  *
  * @package	    DeftCMS
- * @category	Model
+ * @category	Component
  * @author	    b1tc0re
- * @copyright   (c) 2018, DeftCMS (http://deftcms.org)
- * @since	    Version 0.0.1
+ * @copyright   (c) 2018-2021, DeftCMS (http://deftcms.ru/)
+ * @since	    Version 0.0.9a
  */
 class Counter
 {
@@ -55,12 +55,12 @@ class Counter
     {
         $counters = FALSE;
 
-        if( array_key_exists('yandex', $this->config) && $this->config['yandex']['status'] === true )
+        if( array_key_exists('yandex', $this->config) && $this->config['yandex']['enabled'] === true )
         {
             $counters .= $this->initializeYandexMetrika($this->config['yandex']);
         }
 
-        if( array_key_exists('google', $this->config) && $this->config['google']['status'] === true )
+        if( array_key_exists('google', $this->config) && $this->config['google']['enabled'] === true )
         {
             $counters .= $this->initializeGoogleAnalytics($this->config['google']);
         }
